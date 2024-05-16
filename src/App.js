@@ -7,7 +7,7 @@ import './App.css';
 const App = () => {
   const [searchField, setSearchField] = useState(''); // [value, setValue]
   const [monsters, setMonsters] = useState([]);
-  const [flteredMonsters, setFilteredMonsters] = useState(monsters);
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -35,7 +35,7 @@ const App = () => {
         onChangeHandler={onSearchChange}
         placeholder="Search monsters"
       />
-      <CardList monsters={monsters} />
+      <CardList monsters={filteredMonsters} />
     </div>
   );
 };

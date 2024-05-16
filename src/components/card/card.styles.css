@@ -1,7 +1,7 @@
 .card-container {
     display: flex;
     flex-direction: column;
-    background-color: #eeeeee;
+    background-color: #fff;
     border: 0px solid rgb(222, 222, 222);
     border-radius: 0px;
     padding: 25px;
@@ -10,8 +10,21 @@
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.25s ease-out;
+    text-align: center;
+    
   }
   
   .card-container:hover {
     transform: scale(1.05);
+  }
+
+  .rounded {
+    border-radius: 50%;
+    width: 120px;
+    margin:auto;
+
+  }
+
+  .name{
+    
   }
