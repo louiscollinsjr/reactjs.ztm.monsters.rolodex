@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import CardList from './components/card-list/card-list.component';
+import SearchBox from './components/search-box/search-box.component';
 
 import './App.css';
 
@@ -10,7 +12,6 @@ class App extends Component {
       monsters: [],
       searchField: '',
     };
-    console.log('constructor');
   }
 
   componentDidMount() {
@@ -26,7 +27,6 @@ class App extends Component {
           }
         )
       );
-    console.log('componentDidMount');
   }
 
   onSearchChange = (event) => {
@@ -40,9 +40,9 @@ class App extends Component {
 
   render() {
     console.log('render');
-
-    const {monsters, searchField} = this.state;
-    const {onSearchChange} = this;
+    // destructoring
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
 
     const filteredMonsters = monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(searchField);
@@ -50,20 +50,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <input
-          className="search-box"
-          type="search"
-          placeholder="search monsters"
-          onChange={onSearchChange}
+      <h1 className='app-title'>Monster's Rolodex</h1>
+        <SearchBox
+        className='monsters-search-box'
+          onChangeHandler={onSearchChange}
+          placeholder="Search monsters"
         />
-
-        {filteredMonsters.map((monster) => {
-          return (
-            <div key={monster.id}>
-              <h1>{monster.name}</h1>
-            </div>
-          );
-        })}
+        <CardList monsters={filteredMonsters} />
       </div>
     );
   }
